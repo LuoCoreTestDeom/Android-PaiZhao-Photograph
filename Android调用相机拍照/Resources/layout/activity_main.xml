@@ -5,10 +5,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-   
+    <Button
+        android:id="@+id/take_photo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="调用摄像头拍照"
+        android:textSize="20sp" />
 
-   
-
- 
+    <ImageView
+        android:id="@+id/picture"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="description"
+        />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

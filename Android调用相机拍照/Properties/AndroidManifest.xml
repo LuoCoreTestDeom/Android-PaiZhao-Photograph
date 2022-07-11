@@ -4,7 +4,32 @@
           android:versionName="1.0" 
           package="com.companyname.android调用相机拍照">
   <uses-sdk android:minSdkVersion="21" android:targetSdkVersion="31" />
-  <application android:allowBackup="true" android:icon="@mipmap/ic_launcher" android:label="@string/app_name" android:roundIcon="@mipmap/ic_launcher_round" android:supportsRtl="true" android:theme="@style/AppTheme">
+  <application android:allowBackup="true" 
+			   android:icon="@mipmap/ic_launcher" 
+			   android:label="@string/app_name" 
+			   android:roundIcon="@mipmap/ic_launcher_round" 
+			   android:supportsRtl="true" 
+			   android:theme="@style/AppTheme"
+			   android:requestLegacyExternalStorage="true">
+
+	  <!-- 为调用相机拍照设置内容提供者 -->
+	  <provider
+		  android:name="androidx.core.content.FileProvider"
+		  android:authorities="com.example.mydemo.fileprovider"
+		  android:exported="false"
+		  android:grantUriPermissions="true">
+		  <meta-data
+			  android:name="android.support.FILE_PROVIDER_PATHS"
+			  android:resource="@xml/file_paths" />
+	  </provider>
   </application>
   <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.INTERNET" />
+  <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+  <uses-permission android:name="android.permission.CAMERA" />
+  <uses-permission android:name="android.permission.MANAGE_DOCUMENTS" />
+  <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.READ_USER_DICTIONARY" />
+  <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+  <uses-permission android:name="android.permission.WRITE_USER_DICTIONARY" />
 </manifest>
