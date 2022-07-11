@@ -125,15 +125,16 @@ namespace Android调用相机拍照
                 if (Build.VERSION.SdkInt >= (BuildVersionCodes)24)
                 {
                     imageUri = FileProvider.GetUriForFile(this,
-                            "com.example.mydemo.fileprovider", outputImage);
+                            "com.companyname.android调用相机拍照.fileprovider", outputImage);
+                    
                 }
                 else
                 {
                     imageUri = Android.Net.Uri.FromFile(outputImage);
                 }
-
+                
                 //使用隐示的Intent，系统会找到与它对应的活动，即调用摄像头，并把它存储
-                Intent intent = new Intent("android.media.action.IMAGE_CAPTURE");
+                Intent intent = new Intent(Android.Provider.MediaStore.ActionImageCapture);
                 intent.PutExtra(Android.Provider.MediaStore.ExtraOutput, imageUri);
                 StartActivityForResult(intent, TAKE_PHOTO);
                 //调用会返回结果的开启方式，返回成功的话，则把它显示出来
